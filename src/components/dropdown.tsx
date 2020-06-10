@@ -12,8 +12,10 @@ import {
 
 const Button = styled(IconButton)`
 `
-
-export default function Component() {
+interface TComponent {
+  color?: string
+}
+export default function Component({ color }: TComponent) {
   const [isOpen, setIsOpen] = useState(false)
   const dropDownRef = useRef(null)
 
@@ -39,7 +41,7 @@ export default function Component() {
         aria-controls={isOpen ? 'menu-list-grow' : undefined}
         aria-haspopup="true"
       >
-        <i style={{ color: "whitesmoke" }} className={isOpen ? "ri-arrow-drop-up-line" : "ri-arrow-drop-down-line"} />
+        <i style={{ color: color }} className={isOpen ? "ri-arrow-drop-up-line" : "ri-arrow-drop-down-line"} />
       </Button>
       <Popper
         anchorEl={dropDownRef.current}

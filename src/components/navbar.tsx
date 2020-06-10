@@ -48,7 +48,7 @@ export default function Component({ isOpen, setIsOpen }: TProps) {
       <Button onClick={() => setIsOpen(!isOpen)}>
         <i className={isOpen ? "ri-menu-fold-line" : "ri-menu-unfold-line"} />
       </Button>
-      <Tittle>JS-F r o n t</Tittle>
+      <Tittle>TS-F r o n t</Tittle>
       <ProfileWrapper>
         <Profile color="black" background="whitesmoke" />
       </ProfileWrapper>

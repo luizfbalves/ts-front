@@ -5,6 +5,7 @@ import DropDown from './dropdown'
 //Components
 const Wrapper = styled.div`
   display: inline-flex;
+  justify-content: flex-end;
   padding: 5px;
 `
 const Image = styled.img`
@@ -16,20 +17,27 @@ color: whitesmoke;
 padding-left: 7px;
 `
 interface TComponent {
-  color?: string;
-  background?: string;
+  color?: string
+  background?: string
+  showProfilePic?: boolean
 }
 
 //image recomended size: 35px
-export default function Component({ color, background }: TComponent) {
+export default function Component({ color, background, showProfilePic = true }: TComponent) {
 
   return (
     <Wrapper style={{ background: background }}>
       <div>
-        <Image src="https://api.adorable.io/avatars/35/ss%40adorable.io" alt="Avatar" />
+        {
+          showProfilePic
+            ?
+            <Image src="https://api.adorable.io/avatars/35/ss%40adorable.io" alt="Avatar" />
+            :
+            null
+        }
       </div>
       <UserName style={{ color: color }}>Luiz Bandeira</UserName>
-      <DropDown />
+      <DropDown color={color} />
     </Wrapper >
   )
 }
