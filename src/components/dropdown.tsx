@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useRef } from 'react'
+import React, { Fragment, useState } from 'react'
 import styled from 'styled-components'
 import {
   Grow,
@@ -17,20 +17,20 @@ interface TComponent {
 }
 export default function Component({ color }: TComponent) {
   const [isOpen, setIsOpen] = useState(false)
-  const dropDownRef = useRef(null)
+  const dropDownRef = React.useRef<HTMLButtonElement>(null)
 
-  const handleListKeyDown = (e: any) => {
+  const handleClose = (event: React.MouseEvent<EventTarget>) => {
+    if (dropDownRef.current && dropDownRef.current.contains(event.target as HTMLElement)) {
+      return;
+    }
+    setIsOpen(false)
+  }
+
+  const handleListKeyDown = (e: React.KeyboardEvent) => {
     if (e.key === 'Tab') {
       e.preventDefault()
       setIsOpen(false)
     }
-  }
-
-  const handleClose = (e: any) => {
-    return
-    // if (dropDownRef.current && dropDownRef.current.contains(e.target)) {
-    //   return
-    // }
   }
 
   return (
@@ -61,11 +61,6 @@ export default function Component({ color }: TComponent) {
                   autoFocusItem={true}
                   onKeyDown={e => handleListKeyDown(e)}
                 >
-                  {/* {
-                    props.items.map(items => (
-                      <MenuItem onClick={items.event} children={items.name} />
-                    ))
-                  } */}
                   <MenuItem>Profile</MenuItem>
                   <MenuItem>Settings</MenuItem>
                   <MenuItem>Logout</MenuItem>

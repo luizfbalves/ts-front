@@ -1,8 +1,7 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import PrivateRoute from '../auth/privateroute'
-import { Receipts, Payments, Reports } from '../views/content'
-
+import { content } from '../App'
 //Components
 const Feed = styled.div`
 padding: 10px 10px 10px 10px;
@@ -24,9 +23,11 @@ export default function Component() {
   return (
     <Fragment>
       <Feed>
-        <PrivateRoute path="/app/receipts" component={Receipts} />
-        <PrivateRoute path="/app/payments" component={Payments} />
-        <PrivateRoute path="/app/reports" component={Reports} />
+        {
+          content.map(item => (
+            <PrivateRoute key={item.index} path={item.route} component={item.component} />
+          ))
+        }
       </ Feed>
     </Fragment>
   )

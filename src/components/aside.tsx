@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import styled, { keyframes } from 'styled-components'
-import Divider from '@material-ui/core/Divider';
-import { Profile } from '../components'
+import Divider from '@material-ui/core/Divider'
+import { content } from '../App'
 
 //interfaces
 interface TAsideProps {
@@ -13,10 +13,6 @@ interface TAsideProps {
 const leftToRight = keyframes`
 0% {left: -12rem }
 100% {left: 0rem }
-`
-const rightToLeft = keyframes`
-0% { left: 0rem }
-100% { left: -12rem }
 `
 //Components
 const Aside = styled.aside<TAsideProps>`
@@ -68,15 +64,17 @@ export default function Component({ isOpen, setIsOpen }: TProps) {
     loaded = true
   }, [isOpen])
 
-  const handleSide = () => { if (loaded) { return isOpen ? leftToRight : rightToLeft } }
+  const handleSide = () => { if (loaded) { return isOpen ? leftToRight : null } }
 
   return (
     <Aside handleSide={handleSide} isOpen={isOpen}>
-      <Profile color="whitesmoke" background="#353b48" />
+      <span style={{ color: "whitesmoke", textAlign: "center" }} >Menu</span>
       <Separator variant="middle" />
-      <Item onClick={() => setIsOpen(false)} to="/app/receipts" children="Receipts" />
-      <Item onClick={() => setIsOpen(false)} to="/app/payments" children="Payments" />
-      <Item onClick={() => setIsOpen(false)} to="/app/reports" children="Reports" />
+      {
+        content.map(item => (
+          <Item key={item.index} onClick={() => setIsOpen(false)} to={item.route} children={item.title} />
+        ))
+      }
     </Aside>
   )
 }
