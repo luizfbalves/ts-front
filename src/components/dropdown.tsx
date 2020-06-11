@@ -68,7 +68,7 @@ export default function Component({ color }: TComponent) {
                       <MenuItem
                         key={item.index}
                         children={item.title}
-                        onClick={() => item.function()}
+                        onClick={() => item.callback()}
                       />
                     ))
                   }

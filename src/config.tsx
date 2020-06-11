@@ -3,7 +3,7 @@ import {
   Payments,
   Reports
 } from './views/content'
-import { logout } from './auth/auth'
+
 //Insert your content routes here
 export const content = [
   {
@@ -34,11 +34,11 @@ export const dropdown = [
   {
     index: 0,
     title: "Profile",
-    function: testfnc
+    callback: testfnc
   },
   {
     index: 1,
     title: "Settings",
-    function: testfnc
+    callback: testfnc
   },
 ]
