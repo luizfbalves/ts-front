@@ -1,7 +1,7 @@
 import React, { Fragment } from 'react'
 import styled from 'styled-components'
 import PrivateRoute from '../auth/privateroute'
-import { content } from '../App'
+import { content } from '../config'
 //Components
 const Feed = styled.div`
 padding: 10px 10px 10px 10px;

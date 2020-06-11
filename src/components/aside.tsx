@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import styled, { keyframes } from 'styled-components'
 import Divider from '@material-ui/core/Divider'
-import { content } from '../App'
+import { content } from '../config'
 
 //interfaces
 interface TAsideProps {

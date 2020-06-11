@@ -1,5 +1,7 @@
 import React, { Fragment, useState } from 'react'
 import styled from 'styled-components'
+import { dropdown } from '../config'
+import { logout } from '../auth/auth'
 import {
   Grow,
   Paper,
@@ -61,9 +63,16 @@ export default function Component({ color }: TComponent) {
                   autoFocusItem={true}
                   onKeyDown={e => handleListKeyDown(e)}
                 >
-                  <MenuItem>Profile</MenuItem>
-                  <MenuItem>Settings</MenuItem>
-                  <MenuItem>Logout</MenuItem>
+                  {
+                    dropdown.map(item => (
+                      <MenuItem
+                        key={item.index}
+                        children={item.title}
+                        onClick={() => item.function()}
+                      />
+                    ))
+                  }
+                  <MenuItem onClick={() => logout()} >Logout</MenuItem>
                 </MenuList>
               </ClickAwayListener>
             </Paper>
