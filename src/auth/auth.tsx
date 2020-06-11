@@ -14,3 +14,10 @@ export function logged() {
     return false
   }
 }
+
+export function logout() {
+  if (cookie.get('auth') === 'true') {
+    cookie.set('auth', 'false')
+    history.push('/login')
+  }
+}

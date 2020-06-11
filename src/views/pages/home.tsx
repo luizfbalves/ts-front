@@ -10,7 +10,7 @@ height: calc(100vh - 75px);
 `
 
 export default function Component() {
-  const [isOpen, setIsOpen] = useState(true)
+  const [isOpen, setIsOpen] = useState(false)
 
   const HomeContext = React.createContext({
     isOpen,

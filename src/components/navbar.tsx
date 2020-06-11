@@ -2,6 +2,7 @@ import React from 'react'
 import styled, { keyframes } from 'styled-components'
 import IconButton from '@material-ui/core/IconButton'
 import { Profile } from '../components'
+import { history } from '../helpers/history'
 
 //Keyframes
 const rotate = keyframes`
@@ -48,7 +49,7 @@ export default function Component({ isOpen, setIsOpen }: TProps) {
       <Button onClick={() => setIsOpen(!isOpen)}>
         <i className={isOpen ? "ri-menu-fold-line" : "ri-menu-unfold-line"} />
       </Button>
-      <Tittle>TS-F r o n t</Tittle>
+      <Tittle onClick={() => history.push('/app')}>TS-F r o n t</Tittle>
       <ProfileWrapper>
         <Profile color="black" background="whitesmoke" />
       </ProfileWrapper>
