@@ -60,18 +60,18 @@ interface TProps {
   setIsOpen: Function
 }
 
-var loaded = false
+var canAnimate = false
 
 export default function Component({ isOpen, setIsOpen }: TProps) {
 
   useEffect(() => {
-    loaded = true
+    canAnimate = true
   }, [])
 
-  const handleAnimation = () => { if (loaded) { return isOpen ? leftToRight : rightToLeft } }
+  const handleAnimation = () => (canAnimate && isOpen) ? leftToRight : null
 
   return (
-    <Aside onChange={e => e.preventDefault()} handleAnimation={handleAnimation} isOpen={isOpen}>
+    <Aside handleAnimation={handleAnimation} isOpen={isOpen}>
       <span style={{ color: "whitesmoke", textAlign: "center" }} >Menu</span>
       <Separator variant="middle" />
       {
