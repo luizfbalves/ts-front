@@ -1,8 +1,16 @@
 import React, { useState, Fragment } from 'react'
 import { NavBar, Aside, Feed } from '../../components'
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
 
 //components
+const fadeIn = keyframes`
+  0% { opacity: 0 }
+  100 % { opacity: 1 }
+`
+const Form = styled.div`
+animation: ${fadeIn};
+animation-duration: 0.7s;
+`
 const Wrapper = styled.div`
 display: flex;
 background-color: white;
@@ -20,20 +28,22 @@ export default function Component() {
   const ctx = { isOpen, setIsOpen }
 
   return (
-    <HomeContext.Provider value={ctx}>
-      <HomeContext.Consumer>
-        {
-          ({ isOpen, setIsOpen }) => (
-            <Fragment>
-              <NavBar {...{ isOpen, setIsOpen }} />
-              <Wrapper>
-                <Aside {...{ isOpen, setIsOpen }} />
-                <Feed />
-              </Wrapper>
-            </Fragment>
-          )
-        }
-      </HomeContext.Consumer>
-    </HomeContext.Provider>
+    <Form>
+      <HomeContext.Provider value={ctx}>
+        <HomeContext.Consumer>
+          {
+            ({ isOpen, setIsOpen }) => (
+              <Fragment>
+                <NavBar {...{ isOpen, setIsOpen }} />
+                <Wrapper>
+                  <Aside {...{ isOpen, setIsOpen }} />
+                  <Feed />
+                </Wrapper>
+              </Fragment>
+            )
+          }
+        </HomeContext.Consumer>
+      </HomeContext.Provider>
+    </Form>
   )
 }

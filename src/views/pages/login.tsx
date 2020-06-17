@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import styled, { css } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 import auth from '../../auth/auth'
 import {
   Button,
@@ -13,6 +13,11 @@ const flex = css`
 display: flex;
 justify-content: center;
 align-items: center;
+`
+
+const fadeIn = keyframes`
+  0% { opacity: 0 }
+  100 % { opacity: 0 }
 `
 //Components
 const Wrapper = styled.div`
@@ -33,6 +38,8 @@ padding: 10px 20px 10px 20px;
 height: 300px;
 width: 300px;
 background-color: whitesmoke;
+animation: ${fadeIn};
+animation-duration: 0.7s;
 `
 const Title = styled.span`
 font-size: x-large;

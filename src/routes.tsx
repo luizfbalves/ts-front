@@ -12,8 +12,7 @@ export default function Routes() {
         <Route exact path="/">
           <Redirect to="/app" />
         </Route>
-        <Route path="/login" component={Login} >
-        </Route>
+        <Route path="/login" component={Login} />
         <PrivateRoute component={Home} path="/app" />
       </Switch>
     </Router>

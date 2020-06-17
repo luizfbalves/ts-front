@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import styled, { keyframes } from 'styled-components'
 import IconButton from '@material-ui/core/IconButton'
 import { Profile } from '../components'
@@ -44,15 +44,21 @@ interface TProps {
 
 export default function Component({ isOpen, setIsOpen }: TProps) {
 
+  const handleSideButton = (e: React.MouseEvent) => {
+    e.preventDefault()
+    setIsOpen(!isOpen)
+  }
   return (
-    <NavBar>
-      <Button onClick={() => setIsOpen(!isOpen)}>
-        <i className={isOpen ? "ri-menu-fold-line" : "ri-menu-unfold-line"} />
-      </Button>
-      <Tittle onClick={() => history.push('/app')}>TS-F r o n t</Tittle>
-      <ProfileWrapper>
-        <Profile color="black" background="whitesmoke" />
-      </ProfileWrapper>
-    </NavBar>
+    <Fragment>
+      <NavBar>
+        <Button type="button" onClick={e => handleSideButton(e)}>
+          <i className={isOpen ? "ri-menu-fold-line" : "ri-menu-unfold-line"} />
+        </Button>
+        <Tittle onClick={() => history.push('/app')}>TS-F r o n t</Tittle>
+        <ProfileWrapper>
+          <Profile color="black" background="whitesmoke" />
+        </ProfileWrapper>
+      </NavBar>
+    </Fragment>
   )
 }
