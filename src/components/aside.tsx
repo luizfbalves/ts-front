@@ -14,10 +14,6 @@ const leftToRight = keyframes`
 0% {left: -12rem }
 100% {left: 0rem }
 `
-const rightToLeft = keyframes`
-0% {left: 0rem }
-100% {left: -12rem }
-`
 //Components
 const Aside = styled.aside<TAsideProps>`
 display: inline-flex;
@@ -64,9 +60,7 @@ var canAnimate = false
 
 export default function Component({ isOpen, setIsOpen }: TProps) {
 
-  useEffect(() => {
-    canAnimate = true
-  }, [])
+  useEffect(() => { canAnimate = true }, [])
 
   const handleAnimation = () => (canAnimate && isOpen) ? leftToRight : null
 

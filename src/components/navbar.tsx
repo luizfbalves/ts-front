@@ -1,5 +1,5 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { Fragment, useState, useEffect } from 'react'
+import React, { Fragment } from 'react'
 import styled, { keyframes } from 'styled-components'
 import IconButton from '@material-ui/core/IconButton'
 import { Profile } from '../components'
