@@ -1,4 +1,5 @@
-import React from 'react'
+/* eslint-disable react-hooks/exhaustive-deps */
+import React, { Fragment } from 'react'
 import styled, { keyframes } from 'styled-components'
 import IconButton from '@material-ui/core/IconButton'
 import { Profile } from '../components'
@@ -45,14 +46,16 @@ interface TProps {
 export default function Component({ isOpen, setIsOpen }: TProps) {
 
   return (
-    <NavBar>
-      <Button onClick={() => setIsOpen(!isOpen)}>
-        <i className={isOpen ? "ri-menu-fold-line" : "ri-menu-unfold-line"} />
-      </Button>
-      <Tittle onClick={() => history.push('/app')}>TS-F r o n t</Tittle>
-      <ProfileWrapper>
-        <Profile color="black" background="whitesmoke" />
-      </ProfileWrapper>
-    </NavBar>
+    <Fragment>
+      <NavBar>
+        <Button onClick={() => setIsOpen(!isOpen)}>
+          <i className={isOpen ? "ri-menu-fold-line" : "ri-menu-unfold-line"} />
+        </Button>
+        <Tittle onClick={() => history.push('/app')}>TS-F r o n t</Tittle>
+        <ProfileWrapper>
+          <Profile color="black" background="whitesmoke" />
+        </ProfileWrapper>
+      </NavBar>
+    </Fragment>
   )
 }

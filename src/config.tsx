@@ -26,6 +26,7 @@ export const content = [
   },
 ]
 
+//Use the function for your especific case
 const testfnc = () => console.log('test')
 
 //insert your dropdown configs

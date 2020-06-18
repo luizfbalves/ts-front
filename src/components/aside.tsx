@@ -7,7 +7,7 @@ import { content } from '../config'
 //interfaces
 interface TAsideProps {
   isOpen: boolean;
-  handleSide: Function;
+  handleAnimation: Function;
 }
 //Keyframes
 const leftToRight = keyframes`
@@ -27,7 +27,7 @@ background-color: #353b48;
 margin: 5px 0px 0px 5px;
 border-radius: 10px;
 left: ${props => props.isOpen ? "0rem" : "-12rem"};
-animation: ${props => props.handleSide()};
+animation: ${props => props.handleAnimation()};
 animation-duration: 0.3s;
 `
 const Item = styled(Link)`
@@ -56,23 +56,26 @@ interface TProps {
   setIsOpen: Function
 }
 
-var loaded = false
+var canAnimate = false
 
 export default function Component({ isOpen, setIsOpen }: TProps) {
 
-  useEffect(() => {
-    loaded = true
-  }, [isOpen])
+  useEffect(() => { canAnimate = true }, [])
 
-  const handleSide = () => { if (loaded) { return isOpen ? leftToRight : null } }
+  const handleAnimation = () => (canAnimate && isOpen) ? leftToRight : null
 
   return (
-    <Aside handleSide={handleSide} isOpen={isOpen}>
+    <Aside handleAnimation={handleAnimation} isOpen={isOpen}>
       <span style={{ color: "whitesmoke", textAlign: "center" }} >Menu</span>
       <Separator variant="middle" />
       {
         content.map(item => (
-          <Item key={item.index} onClick={() => setIsOpen(false)} to={item.route} children={item.title} />
+          <Item
+            key={item.index}
+            onClick={() => setIsOpen(false)}
+            to={item.route}
+            children={item.title}
+          />
         ))
       }
     </Aside>
