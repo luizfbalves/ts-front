@@ -29,8 +29,8 @@ export const content = [
 //Use the function for your especific case
 const testfnc = () => console.log('test')
 
-//insert your dropdown configs
-//no need to pass logout method
+// insert your dropdown configs
+// no need to pass logout method
 export const dropdown = [
   {
     index: 0,

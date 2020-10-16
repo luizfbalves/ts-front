@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import styled, { keyframes } from 'styled-components'
 import Divider from '@material-ui/core/Divider'
 import { content } from '../config'
+import { ClickAwayListener } from '@material-ui/core'
 
 //interfaces
 interface TAsideProps {
@@ -60,24 +61,27 @@ var canAnimate = false
 
 export default function Component({ isOpen, setIsOpen }: TProps) {
 
-  useEffect(() => { canAnimate = true }, [])
 
   const handleAnimation = () => (canAnimate && isOpen) ? leftToRight : null
+  const handleClickAway = () => isOpen ? setIsOpen(false) : setIsOpen(isOpen)
 
+  useEffect(() => { canAnimate = true }, [])
   return (
-    <Aside handleAnimation={handleAnimation} isOpen={isOpen}>
-      <span style={{ color: "whitesmoke", textAlign: "center" }} >Menu</span>
-      <Separator variant="middle" />
-      {
-        content.map(item => (
-          <Item
-            key={item.index}
-            onClick={() => setIsOpen(false)}
-            to={item.route}
-            children={item.title}
-          />
-        ))
-      }
-    </Aside>
+    <ClickAwayListener onClickAway={() => handleClickAway()}>
+      <Aside handleAnimation={handleAnimation} isOpen={isOpen}>
+        <span style={{ color: "whitesmoke", textAlign: "center" }} >Menu</span>
+        <Separator variant="middle" />
+        {
+          content.map(item => (
+            <Item
+              key={item.index}
+              onClick={() => setIsOpen(false)}
+              to={item.route}
+              children={item.title}
+            />
+          ))
+        }
+      </Aside>
+    </ClickAwayListener>
   )
 }

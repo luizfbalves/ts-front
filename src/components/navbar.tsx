@@ -15,12 +15,13 @@ const NavBar = styled.nav`
 display: flex;
 align-items: center;
 height: 60px;
-background-color: whitesmoke;
+background-color: #673ab7;
 margin: 5px 5px 0px 5px;
 padding: 5px 5px 5px 0px;
 border-radius: 10px;
 `
 const Button = styled(IconButton)`
+color: whitesmoke;
 :focus{
   outline: none;  
 }
@@ -31,6 +32,7 @@ const Button = styled(IconButton)`
 const Tittle = styled.span`
 margin-left: 5px;
 font-size: 18px;
+color: whitesmoke;
 cursor: pointer;
 user-select:none;
 `
@@ -53,7 +55,7 @@ export default function Component({ isOpen, setIsOpen }: TProps) {
         </Button>
         <Tittle onClick={() => history.push('/app')}>TS-F r o n t</Tittle>
         <ProfileWrapper>
-          <Profile color="black" background="whitesmoke" />
+          <Profile color="whitesmoke" />
         </ProfileWrapper>
       </NavBar>
     </Fragment>

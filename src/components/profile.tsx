@@ -25,13 +25,19 @@ interface TComponent {
 //image recomended size: 35px
 export default function Component({ color, background, showProfilePic = true }: TComponent) {
 
+  const profilePic = "https://avatars2.githubusercontent.com/u/31023594?s=400&u=d416393324f50802fd5078c2ae5fe7b21efab889&v=4"
+
   return (
     <Wrapper style={{ background: background }}>
       <div>
         {
           showProfilePic
             ?
-            <Image src="https://api.adorable.io/avatars/35/ss%40adorable.io" alt="Avatar" />
+            <Image
+              style={{
+                width: "45px"
+              }}
+              src={profilePic} alt="Avatar" />
             :
             null
         }
