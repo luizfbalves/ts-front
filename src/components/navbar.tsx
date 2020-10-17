@@ -50,7 +50,7 @@ export default function Component({ isOpen, setIsOpen }: iProps) {
 
   const handleTittle = () => {
     setIsOpen(false)
-    history.push('/app')
+    history.push('/app/home')
   }
   return (
     <Fragment>

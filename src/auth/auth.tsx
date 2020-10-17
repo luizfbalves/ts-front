@@ -4,7 +4,7 @@ import { history } from '../helpers/history'
 export default function auth(user: string, password: string) {
 
   cookie.set('auth', 'true')
-  history.push('/app')
+  history.push('/app/home')
   return true
 
 }

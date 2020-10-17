@@ -1,13 +1,13 @@
 import NavBar from './navbar'
 import Aside from './aside'
-import Feed from './feed'
+import Content from './content'
 import Profile from './profile'
 import DropDown from './dropdown'
 
 export {
   NavBar,
   Aside,
-  Feed,
+  Content,
   Profile,
   DropDown,
 }
