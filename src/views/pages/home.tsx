@@ -1,5 +1,5 @@
 import React, { useState, Fragment } from 'react'
-import { NavBar, Aside, Feed } from '../../components'
+import { NavBar, Aside, Content } from '../../components'
 import styled, { keyframes } from 'styled-components'
 
 //components
@@ -37,7 +37,7 @@ export default function Component() {
                 <NavBar {...{ isOpen, setIsOpen }} />
                 <Wrapper>
                   <Aside {...{ isOpen, setIsOpen }} />
-                  <Feed />
+                  <Content />
                 </Wrapper>
               </Fragment>
             )

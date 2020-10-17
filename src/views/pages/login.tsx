@@ -10,62 +10,77 @@ import {
 
 //Styles
 const flex = css`
-display: flex;
-justify-content: center;
-align-items: center;
+  display: flex;  
+  align-items: center;
 `
 
 const fadeIn = keyframes`
   0% { opacity: 0 }
   100 % { opacity: 0 }
 `
+
 //Components
 const Wrapper = styled.div`
-${flex}
-height: 100%;
-width: 100%;
-position: absolute;
-background-color: whitesmoke;
+  ${flex}
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: whitesmoke;
 `
 const Form = styled.form`
-${flex}
-flex-direction: column;
-justify-content: space-evenly;
-text-align: center;
-align-items: stretch;
-position: absolute;
-padding: 10px 20px 10px 20px;
-height: 300px;
-width: 300px;
-background-color: whitesmoke;
-animation: ${fadeIn};
-animation-duration: 0.7s;
+  ${flex}
+  flex-direction: column;
+  justify-content: space-evenly;
+  text-align: center;
+  align-items: stretch;
+  padding: 10px 10px 10px 10px;
+  height: 300px;
+  width: 300px;
+  background-color: whitesmoke;
+  animation: ${fadeIn};
+  animation-duration: 0.7s;
 `
 const Title = styled.span`
-font-size: x-large;
-color: #616161;
-`
-const ButtonSC = styled(Button)`
-color: #616161;
-background-color: #e7e5e8;
-
-:hover {
-  color: whitesmoke;
-  background-color: #6628ea;
-}
-:focus {
-  color: whitesmoke;
-  background-color: #6628ea;
-  outline: none;
-}
-`
-const FormControlLabelSC = styled(FormControlLabel)`
-user-select: none;
-margin: 0px 0px 0px -11px;
-.MuiTypography-body1 {
-  font-size: 13px;
+  font-size: x-large;
   color: #616161;
-}
+`
+const ButtonStyled = styled(Button)`
+  color: #616161;
+  background-color: #e7e5e8;
+
+  :hover {
+    color: whitesmoke;
+    background-color: #5822b9;
+  }
+  :focus {
+    color: whitesmoke;
+    background-color: #5822b9;
+    outline: none;
+  }
+`
+const CheckBoxStyled = styled(FormControlLabel)`
+  user-select: none;
+  margin: 0px 0px 0px -11px;
+  .MuiTypography-body1 {
+    font-size: 13px;
+    color: #616161;
+  }
+`
+
+const BannerStyled = styled.div`
+  ${flex}
+  float: left;
+  width: 67%;
+  height: 100%;
+  background-color: #5822b9;  
+`
+
+const LoginStyled = styled.div`
+  ${flex}
+  float: right;
+  width: 33%;
+  height: 100%;
+  justify-content: center;  
 `
 
 export default function Component() {
@@ -74,35 +89,36 @@ export default function Component() {
 
   return (
     <Wrapper >
-      <Form >
-        <Title>Log-in</Title>
-        <TextField
-          onChange={e => setUser(e.target.value)}
-          autoFocus={true}
-          size="small"
-          type="text"
-          label="Usuário"
-          autoComplete="username"
-          variant="outlined"
-          required
-        />
-        <TextField
-          onChange={e => setPassword(e.target.value)}
-          autoComplete="new-password"
-          size="small"
-          type="password"
-          variant="outlined"
-          label="Senha"
-          required
-        />
-        <FormControlLabelSC
-          control={<Checkbox size="small" color="primary" />}
-          label="Lembrar-me"
-        />
-        <ButtonSC onClick={() => auth(user, password)}>
-          Continuar
-        </ButtonSC>
-      </Form>
+      <BannerStyled />
+      <LoginStyled>
+        <Form >
+          <Title>DashBoard</Title>
+          <TextField
+            onChange={e => setUser(e.target.value)}
+            autoFocus={true}
+            type="text"
+            label="User"
+            autoComplete="username"
+            variant="outlined"
+            required
+          />
+          <TextField
+            onChange={e => setPassword(e.target.value)}
+            autoComplete="new-password"
+            type="password"
+            variant="outlined"
+            label="Password"
+            required
+          />
+          <CheckBoxStyled
+            control={<Checkbox size="small" color="primary" />}
+            label="Lembrar-me"
+          />
+          <ButtonStyled onClick={() => auth(user, password)}>
+            Log-in
+        </ButtonStyled>
+        </Form>
+      </LoginStyled>
     </Wrapper >
   )
 }

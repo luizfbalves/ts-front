@@ -2,6 +2,7 @@ import React, { Fragment, useState } from 'react'
 import styled from 'styled-components'
 import { dropdown } from '../config'
 import { logout } from '../auth/auth'
+import { ExitToApp } from '@material-ui/icons'
 import {
   Grow,
   Paper,
@@ -13,6 +14,11 @@ import {
 } from '@material-ui/core'
 
 const Button = styled(IconButton)`
+`
+
+const Item = styled(MenuItem)`
+  padding-left: 2px;
+  font-size: 15px;
 `
 interface TComponent {
   color?: string
@@ -65,14 +71,19 @@ export default function Component({ color }: TComponent) {
                 >
                   {
                     dropdown.map(item => (
-                      <MenuItem
+                      <Item
                         key={item.index}
-                        children={item.title}
                         onClick={() => item.callback()}
-                      />
+                      >
+                        {<item.icon style={{ marginRight: "5px" }} />}
+                        {item.title}
+                      </Item>
                     ))
                   }
-                  <MenuItem onClick={() => logout()} >Logout</MenuItem>
+                  <Item onClick={() => logout()}>
+                    <ExitToApp style={{ marginRight: "5px" }} />
+                    Logout
+                  </Item>
                 </MenuList>
               </ClickAwayListener>
             </Paper>

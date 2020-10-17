@@ -4,7 +4,7 @@ export default function Component() {
 
   return (
     <Fragment>
-      Reports
+      Products
     </Fragment>
   )
 }

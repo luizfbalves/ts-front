@@ -15,12 +15,13 @@ const NavBar = styled.nav`
 display: flex;
 align-items: center;
 height: 60px;
-background-color: whitesmoke;
+background-color: #5822b9;
 margin: 5px 5px 0px 5px;
 padding: 5px 5px 5px 0px;
 border-radius: 10px;
 `
 const Button = styled(IconButton)`
+color: whitesmoke;
 :focus{
   outline: none;  
 }
@@ -31,29 +32,35 @@ const Button = styled(IconButton)`
 const Tittle = styled.span`
 margin-left: 5px;
 font-size: 18px;
+color: whitesmoke;
 cursor: pointer;
 user-select:none;
 `
 const ProfileWrapper = styled.div`
 margin-left: auto;
+margin-right: 13px;
 `
 //interfaces
-interface TProps {
+interface iProps {
   isOpen: boolean
   setIsOpen: Function
 }
 
-export default function Component({ isOpen, setIsOpen }: TProps) {
+export default function Component({ isOpen, setIsOpen }: iProps) {
 
+  const handleTittle = () => {
+    setIsOpen(false)
+    history.push('/app/home')
+  }
   return (
     <Fragment>
       <NavBar>
         <Button onClick={() => setIsOpen(!isOpen)}>
           <i className={isOpen ? "ri-menu-fold-line" : "ri-menu-unfold-line"} />
         </Button>
-        <Tittle onClick={() => history.push('/app')}>TS-F r o n t</Tittle>
+        <Tittle onClick={() => handleTittle()}>TS-F r o n t</Tittle>
         <ProfileWrapper>
-          <Profile color="black" background="whitesmoke" />
+          <Profile color="whitesmoke" />
         </ProfileWrapper>
       </NavBar>
     </Fragment>

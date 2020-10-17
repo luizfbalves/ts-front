@@ -1,9 +1,11 @@
 import Payments from './payments'
 import Receipts from './receipts'
-import Reports from './reports'
+import Products from './products'
+import Home from './home'
 
 export {
   Payments,
   Receipts,
-  Reports
+  Products,
+  Home
 }
