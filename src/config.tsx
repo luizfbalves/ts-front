@@ -7,6 +7,8 @@ import {
   Receipt,
   Payment,
   AllInbox,
+  AccountCircle,
+  Settings,
 } from '@material-ui/icons'
 
 //Insert your content routes here
@@ -43,11 +45,13 @@ export const dropdown = [
   {
     index: 0,
     title: "Profile",
-    callback: testfnc
+    callback: testfnc,
+    icon: AccountCircle
   },
   {
     index: 1,
     title: "Settings",
-    callback: testfnc
+    callback: testfnc,
+    icon: Settings
   },
 ]

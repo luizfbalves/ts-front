@@ -15,7 +15,7 @@ const NavBar = styled.nav`
 display: flex;
 align-items: center;
 height: 60px;
-background-color: #673ab7;
+background-color: #5822b9;
 margin: 5px 5px 0px 5px;
 padding: 5px 5px 5px 0px;
 border-radius: 10px;
@@ -38,6 +38,7 @@ user-select:none;
 `
 const ProfileWrapper = styled.div`
 margin-left: auto;
+margin-right: 13px;
 `
 //interfaces
 interface TProps {

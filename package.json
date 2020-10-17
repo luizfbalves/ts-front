@@ -23,7 +23,6 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.1",
     "react-transition-group": "^4.4.1",
-    "remixicon": "^2.5.0",
     "styled-components": "^5.1.1",
     "typeface-roboto": "^0.0.75",
     "typescript": "^3.9.5"

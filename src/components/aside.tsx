@@ -72,8 +72,8 @@ export default function Component({ isOpen, setIsOpen }: iProps) {
   useEffect(() => { canAnimate = true }, [])
   return (
     <ClickAwayListener onClickAway={() => handleClickAway()}>
-      <Aside handleAnimation={handleAnimation} isOpen={true}>
-        <span style={{ color: "whitesmoke", textAlign: "center" }} >Menu</span>
+      <Aside handleAnimation={handleAnimation} isOpen={isOpen}>
+        <span style={{ color: "whitesmoke", textAlign: "center", WebkitUserSelect: "none" }}>Menu</span>
         <Separator variant="middle" />
         {
           content.map(item => (
