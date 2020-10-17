@@ -29,13 +29,16 @@ export default function Component({ color, background, showProfilePic = true }: 
 
   return (
     <Wrapper style={{ background: background }}>
-      <div>
+      <div style={{ display: "flex" }} >
         {
           showProfilePic
             ?
             <Image
               style={{
-                width: "45px"
+                width: "49px",
+                borderColor: "whitesmoke",
+                borderWidth: "2px",
+                borderStyle: "solid"
               }}
               src={profilePic} alt="Avatar" />
             :

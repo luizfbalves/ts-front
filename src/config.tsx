@@ -1,8 +1,13 @@
 import {
   Receipts,
   Payments,
-  Reports
+  Products,
 } from './views/content'
+import {
+  Receipt,
+  Payment,
+  AllInbox,
+} from '@material-ui/icons'
 
 //Insert your content routes here
 export const content = [
@@ -10,19 +15,22 @@ export const content = [
     index: 0,
     title: "Receipts",
     route: "/app/receipts",
-    component: Receipts
+    component: Receipts,
+    icon: Receipt
   },
   {
     index: 1,
     title: "Payments",
     route: "/app/payments",
-    component: Payments
+    component: Payments,
+    icon: Payment
   },
   {
     index: 2,
-    title: "Reports",
-    route: "/app/reports",
-    component: Reports
+    title: "Products",
+    route: "/app/products",
+    component: Products,
+    icon: AllInbox
   },
 ]
 
