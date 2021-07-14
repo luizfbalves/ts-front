@@ -72,7 +72,13 @@ const BannerStyled = styled.div`
   float: left;
   width: 67%;
   height: 100%;
-  background-color: #5822b9;  
+  background-color: #5822b9;
+  justify-content: center;
+  strong {
+    color: whitesmoke;
+    font-size: 50px;
+    text-align: center;
+  }
 `
 
 const LoginStyled = styled.div`
@@ -89,7 +95,7 @@ export default function Component() {
 
   return (
     <Wrapper >
-      <BannerStyled />
+      <BannerStyled ><strong>Your info goes here!!!</strong></BannerStyled>
       <LoginStyled>
         <Form >
           <Title>DashBoard</Title>
